@@ -27,9 +27,28 @@ float DEVICE_WIDTH,DEVICE_HEIGHT;
 
     [mc.view setFrame:CGRectMake(0, self.navigationBar.frame.size.height, DEVICE_WIDTH, DEVICE_HEIGHT-self.navigationBar.frame.size.height)];
     
-    [self addChildViewController:mc];
-    self.navigationBarHidden=YES;
     
+    
+    
+    
+ 
+    [self.navigationBar setBarTintColor:[UIColor blueColor]];
+        UIImageView *titleLogoView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+        UIImage *logoImage=[UIImage imageNamed:@"logo.png"];
+    
+        [titleLogoView setImage:logoImage];
+    
+//    
+//          self.navigationItem.leftBarButtonItem=leftItem;
+//    self.navigationItem.rightBarButtonItem=rightItem;
+//    self.navigationItem.titleView=titleLogoView;
+//    
+//   self.navigationBar set
+
+    
+    [self addChildViewController:mc];
+//    self.navigationBarHidden=YES;
+//    self.navigationBar
     
     
     }

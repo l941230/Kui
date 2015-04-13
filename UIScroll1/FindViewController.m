@@ -43,12 +43,17 @@ float DEVICE_WIDTH,DEVICE_HEIGHT;
     DEVICE_WIDTH=[UIScreen mainScreen].bounds.size.width;
     DEVICE_HEIGHT=[UIScreen mainScreen].bounds.size.height;
     // Do any additional setup after loading the view.
-    UINavigationBar *navBar=[[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 60)];
-    UINavigationItem *item=[[UINavigationItem alloc]init];
-    UIBarButtonItem *leftBtn=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self     action:@selector(popself)];
-    item.leftBarButtonItem=leftBtn;
-    [navBar pushNavigationItem:item animated:NO];
-    [self.view addSubview:navBar];
+//    UINavigationBar *navBar=[[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 60)];
+//    UINavigationItem *item=[[UINavigationItem alloc]init];
+//    UIBarButtonItem *leftBtn=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self     action:@selector(popself)];
+//    item.leftBarButtonItem=leftBtn;
+    
+    
+//   self.navigationItem.backBarButtonItem=leftBtn;
+//    [navBar pushNavigationItem:item animated:NO];
+   // [self.view addSubview:navBar];
+    
+    
     
     
     tableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 200, DEVICE_WIDTH, DEVICE_HEIGHT-200) style:UITableViewStyleGrouped];

@@ -312,7 +312,26 @@ struct PPoint touch_End;
 //    navController *nav=self.navdelegate;
 //  
 //    [nav popViewControllerAnimated:YES];
+ 
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.5;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromLeft;
+    transition.delegate = self;
+    //[self.navigationController.view.layer addAnimation:transition forKey:nil];
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    [self.view.layer addAnimation:transition forKey:nil];
+    
+  
+
+    
+    self.navigationController.navigationBarHidden=NO;
+    
+    
+    
     [self.navigationController popViewControllerAnimated:NO];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

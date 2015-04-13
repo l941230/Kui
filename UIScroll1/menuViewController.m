@@ -14,6 +14,7 @@
 
 @implementation menuViewController
 @synthesize menuTableView;
+@synthesize rootDelegate;
 float DEVICE_WIDTH,DEVICE_HEIGHT;
 float VIEW_WIDTH;
 - (void)viewDidLoad {
@@ -131,6 +132,15 @@ float VIEW_WIDTH;
  
     return cell;
 
+}
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row==3)
+    {
+        rootViewController *root=self.rootDelegate;
+        [root.scView setContentOffset:CGPointMake(0.75*DEVICE_WIDTH, 0)animated:YES];
+        PersonalDataViewController *personDataVC=[[PersonalDataViewController alloc]init];
+        [root.nav pushViewController:personDataVC animated:YES];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

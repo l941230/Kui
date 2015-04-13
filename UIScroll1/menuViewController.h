@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PersonalDataViewController.h"
+#import "navController.h"
+#import "rootViewController.h"
 @interface menuViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 @property UITableView *menuTableView;
+@property id rootDelegate;
 @end

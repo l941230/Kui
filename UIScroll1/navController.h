@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "rootViewController.h"
+
 @interface navController : UINavigationController
 
 @property id   delegateroot;

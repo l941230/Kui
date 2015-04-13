@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TableController : UITableViewController
+@interface TableController : UITableViewController<UIScrollViewDelegate>
 @property id mainDelegate;
+@property BOOL isLoading;
 @end

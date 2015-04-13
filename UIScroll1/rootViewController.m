@@ -9,17 +9,15 @@
 #import "rootViewController.h"
 
 #import "mainViewController.h"
-#import "navController.h"
+
 #import "menuViewController.h"
 @interface rootViewController ()
-{
-     navController *nav;
-   
-}
+
 @end
 
 @implementation rootViewController
 @synthesize scView=_scView;
+@synthesize nav;
 float DEVICE_WIDTH,DEVICE_HEIGHT;
 
 struct PPoint{
@@ -38,6 +36,8 @@ struct PPoint touch_End;
     DEVICE_HEIGHT=[UIScreen mainScreen].bounds.size.height;
     menuViewController *menuController=[[menuViewController alloc]init];
     [menuController.view setFrame:CGRectMake(0, 0, 0.75*DEVICE_WIDTH, DEVICE_HEIGHT)];
+    menuController.rootDelegate=self;
+   
   [self addChildViewController:menuController];
     
 

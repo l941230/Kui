@@ -119,8 +119,8 @@ tableViewArray=[[NSMutableArray alloc]init];
         [self addChildViewController:tableController];
 
                     }
-  //[self.navigationController.navigationBar=
-    UINavigationBar *bar=[[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 60)];
+ 
+   
     
     UIButton *leftBtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
     leftBtn.layer.cornerRadius=20;
@@ -130,27 +130,29 @@ tableViewArray=[[NSMutableArray alloc]init];
   
     
     UIBarButtonItem *rightItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self  action:@selector(pushFindView)];
-    UINavigationItem *item=[[UINavigationItem alloc]init];
     
     
-    [bar setBackgroundColor:[UIColor purpleColor]];
+    
+
     UIImageView *titleLogoView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
     UIImage *logoImage=[UIImage imageNamed:@"logo.png"];
     
     [titleLogoView setImage:logoImage];
     
-   
-    item.titleView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
-    item.rightBarButtonItem=rightItem;
-    [item setLeftBarButtonItem:leftItem];
-  [item.titleView addSubview: titleLogoView];
     
-    [bar pushNavigationItem:item animated:YES];
+   
+    
+     self.navigationItem.titleView =[[UIView alloc]initWithFrame: CGRectMake(0, 0, 40, 40)];
+    [self.navigationItem.titleView addSubview:titleLogoView];
+    self.navigationItem.leftBarButtonItem=leftItem;
+    self.navigationItem.rightBarButtonItem=rightItem;
+//
+//    [bar pushNavigationItem:item animated:YES];
    [self.view addSubview:navView];
     
    [self.view addSubview:sliderView];
   [self.view addSubview:scrol];
-    [self.view addSubview:bar];
+//    [self.view addSubview:bar];
     
     
  [scrol addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionOld context:nil];
@@ -161,7 +163,21 @@ tableViewArray=[[NSMutableArray alloc]init];
     }
 -(void)pushFindView{
     FindViewController *findCtr=[[FindViewController alloc]init];
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromRight;
+    transition.delegate = self;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+   [self.view.layer addAnimation:transition forKey:nil];
+    [findCtr.view.layer addAnimation:transition forKey:nil];
     [self.navigationController pushViewController:findCtr animated:NO];
+    UIBarButtonItem *backItem=[[UIBarButtonItem alloc]init];
+    [backItem setTitle:@"返回"];
+    
+    self.navigationItem.backBarButtonItem=backItem;
+   
 }
 -(void)scroll{
     navController *nan=  self.navdelegate;

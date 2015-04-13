@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MainScroll.h"
 #import "FindViewController.h"
+#import "navController.h"
 @interface rootViewController : UIViewController <UIScrollViewDelegate>
 {
     UIView *view1;
@@ -16,10 +17,10 @@
     UIView *view3;
     UITapGestureRecognizer *tap;
     UIView *view4;
-    
+   
 }
 -(void)returnMain;
 -(void)scrollToMenu;
-
+@property navController *nav;
 @property MainScroll *scView;
 @end
