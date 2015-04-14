@@ -149,20 +149,13 @@ struct PPoint touch_End;
 //    [self.view layoutSubviews];
   //   NSLog(@"%f,%f,%f,%f",toolBar.frame.origin.x,toolBar.frame.origin.y,toolBar.frame.size.width,toolBar.frame.size.height);
 }
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
     
-    
-//    [UIView animateWithDuration:0.5 animations:^{
-//        if(isShow)
-//        [btn setAlpha:0];
-//        else
-//            [btn setAlpha:1];
     UITouch *touch = [touches anyObject];
     CGPoint touchPoint = [touch locationInView:self.view];
     touch_Begin.x=touchPoint.x;
     touch_Begin.y=touchPoint.y;
-    
-//    }];
     
 }
 -(void)like

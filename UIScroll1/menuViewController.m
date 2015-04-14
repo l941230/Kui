@@ -100,11 +100,12 @@ float VIEW_WIDTH;
     UITableViewCell *cell;
    
         
-        static NSString *setterIdentifier=@"setterIdentifier";
-        cell=[tableView dequeueReusableCellWithIdentifier:setterIdentifier];
-        if(cell==nil)
+//        static NSString *setterIdentifier=@"setterIdentifier";
+//        cell=[tableView dequeueReusableCellWithIdentifier:setterIdentifier];
+//        if(cell==nil)
         {
-            cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:setterIdentifier];
+            cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:nil
+                  ];
         }
     switch (indexPath.row) {
         case 0:
@@ -129,18 +130,21 @@ float VIEW_WIDTH;
         default:
             break;
     }
- 
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     return cell;
 
 }
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.row==3)
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+   
+    if(indexPath.row==0)
     {
         rootViewController *root=self.rootDelegate;
         [root.scView setContentOffset:CGPointMake(0.75*DEVICE_WIDTH, 0)animated:YES];
         PersonalDataViewController *personDataVC=[[PersonalDataViewController alloc]init];
         [root.nav pushViewController:personDataVC animated:YES];
     }
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

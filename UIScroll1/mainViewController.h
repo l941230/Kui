@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PageScroll.h"
 #import "TableController.h"
+#import "TypeTwoViewController.h"
 @interface mainViewController : UIViewController
 <UIScrollViewAccessibilityDelegate>
 

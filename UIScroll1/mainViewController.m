@@ -103,11 +103,10 @@ tableViewArray=[[NSMutableArray alloc]init];
     
         
         for (int j=0; j<6; j++)
-        {
-            UILabel *l=[[UILabel alloc]initWithFrame:CGRectMake(70*j, 10, 60, 30)];
-            l.text=[NSString stringWithFormat:@"第%d个页面",j];
-            [scView addSubview:l];
-            
+        {UIButton *Type2Btn=[[UIButton alloc]initWithFrame:CGRectMake(j*100, 0, 60, 40)];
+            [Type2Btn setBackgroundColor:[UIColor blackColor]];
+            [scView addSubview:Type2Btn];
+            [Type2Btn addTarget:self action:@selector(pushType2View) forControlEvents:UIControlEventTouchDown];
         }
         [tableViewArray addObject:tableController.tableView];
         //        [tableViewArray addObject:view];
@@ -146,7 +145,11 @@ tableViewArray=[[NSMutableArray alloc]init];
     [self.navigationItem.titleView addSubview:titleLogoView];
     self.navigationItem.leftBarButtonItem=leftItem;
     self.navigationItem.rightBarButtonItem=rightItem;
-//
+    UIBarButtonItem *backItem=[[UIBarButtonItem alloc]init];
+    [backItem setTitle:@"返回"];
+    
+    self.navigationItem.backBarButtonItem=backItem;
+    
 //    [bar pushNavigationItem:item animated:YES];
    [self.view addSubview:navView];
     
@@ -161,6 +164,10 @@ tableViewArray=[[NSMutableArray alloc]init];
     
     
     }
+-(void)pushType2View{
+    TypeTwoViewController *type2VC=[[TypeTwoViewController alloc]init];
+    [self.navigationController pushViewController:type2VC animated:YES];
+}
 -(void)pushFindView{
     FindViewController *findCtr=[[FindViewController alloc]init];
     CATransition *transition = [CATransition animation];
@@ -173,10 +180,6 @@ tableViewArray=[[NSMutableArray alloc]init];
    [self.view.layer addAnimation:transition forKey:nil];
     [findCtr.view.layer addAnimation:transition forKey:nil];
     [self.navigationController pushViewController:findCtr animated:NO];
-    UIBarButtonItem *backItem=[[UIBarButtonItem alloc]init];
-    [backItem setTitle:@"返回"];
-    
-    self.navigationItem.backBarButtonItem=backItem;
    
 }
 -(void)scroll{

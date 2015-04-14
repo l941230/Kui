@@ -17,6 +17,12 @@
 		F71F4F741ACAC77200548D7A /* TitleWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = F71F4F731ACAC77200548D7A /* TitleWebView.m */; };
 		F71F4F771ACAC88D00548D7A /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71F4F761ACAC88D00548D7A /* TitleViewController.m */; };
 		F727093A1ADACB71002C30E3 /* PersonalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72709391ADACB71002C30E3 /* PersonalDataViewController.m */; };
+		F72709421ADBD21F002C30E3 /* Btn_TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F727093D1ADBD21F002C30E3 /* Btn_TableView.m */; };
+		F72709431ADBD21F002C30E3 /* ExpandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F727093F1ADBD21F002C30E3 /* ExpandCell.m */; };
+		F72709441ADBD21F002C30E3 /* ExpandTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F72709411ADBD21F002C30E3 /* ExpandTableVC.m */; };
+		F72709471ADBD3B7002C30E3 /* TypeTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72709461ADBD3B7002C30E3 /* TypeTwoViewController.m */; };
+		F72709491ADD2460002C30E3 /* 3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F72709481ADD2460002C30E3 /* 3.JPG */; };
+		F727094B1ADD29BA002C30E3 /* 2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F727094A1ADD29BA002C30E3 /* 2.JPG */; };
 		F73E234A1ACD8421004B4DA6 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F73E23491ACD8421004B4DA6 /* FindViewController.m */; };
 		F73E234D1ACEAD6A004B4DA6 /* TableController.m in Sources */ = {isa = PBXBuildFile; fileRef = F73E234C1ACEAD6A004B4DA6 /* TableController.m */; };
 		F7ABD60C1AC1978C003EF049 /* MainScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ABD60B1AC1978C003EF049 /* MainScroll.m */; };
@@ -68,6 +74,16 @@
 		F71F4F761ACAC88D00548D7A /* TitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleViewController.m; sourceTree = "<group>"; };
 		F72709381ADACB70002C30E3 /* PersonalDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalDataViewController.h; sourceTree = "<group>"; };
 		F72709391ADACB71002C30E3 /* PersonalDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalDataViewController.m; sourceTree = "<group>"; };
+		F727093C1ADBD21F002C30E3 /* Btn_TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Btn_TableView.h; sourceTree = "<group>"; };
+		F727093D1ADBD21F002C30E3 /* Btn_TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Btn_TableView.m; sourceTree = "<group>"; };
+		F727093E1ADBD21F002C30E3 /* ExpandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandCell.h; sourceTree = "<group>"; };
+		F727093F1ADBD21F002C30E3 /* ExpandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandCell.m; sourceTree = "<group>"; };
+		F72709401ADBD21F002C30E3 /* ExpandTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandTableVC.h; sourceTree = "<group>"; };
+		F72709411ADBD21F002C30E3 /* ExpandTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandTableVC.m; sourceTree = "<group>"; };
+		F72709451ADBD3B7002C30E3 /* TypeTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeTwoViewController.h; sourceTree = "<group>"; };
+		F72709461ADBD3B7002C30E3 /* TypeTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeTwoViewController.m; sourceTree = "<group>"; };
+		F72709481ADD2460002C30E3 /* 3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.JPG; sourceTree = "<group>"; };
+		F727094A1ADD29BA002C30E3 /* 2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.JPG; sourceTree = "<group>"; };
 		F73E23481ACD8421004B4DA6 /* FindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewController.h; sourceTree = "<group>"; };
 		F73E23491ACD8421004B4DA6 /* FindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewController.m; sourceTree = "<group>"; };
 		F73E234B1ACEAD6A004B4DA6 /* TableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableController.h; sourceTree = "<group>"; };
@@ -132,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				F71F4F701ACAAB9C00548D7A /* logo.png */,
+				F72709481ADD2460002C30E3 /* 3.JPG */,
+				F727094A1ADD29BA002C30E3 /* 2.JPG */,
 				F71F4F681AC8572500548D7A /* 1.png */,
 				F71F4F691AC8572500548D7A /* 2.png */,
 				F71F4F6A1AC8572500548D7A /* 3.png */,
@@ -152,6 +170,21 @@
 				F73E234C1ACEAD6A004B4DA6 /* TableController.m */,
 			);
 			name = TableCell;
+			sourceTree = "<group>";
+		};
+		F727093B1ADBD1DC002C30E3 /* TypeViews */ = {
+			isa = PBXGroup;
+			children = (
+				F727093C1ADBD21F002C30E3 /* Btn_TableView.h */,
+				F727093D1ADBD21F002C30E3 /* Btn_TableView.m */,
+				F727093E1ADBD21F002C30E3 /* ExpandCell.h */,
+				F727093F1ADBD21F002C30E3 /* ExpandCell.m */,
+				F72709401ADBD21F002C30E3 /* ExpandTableVC.h */,
+				F72709411ADBD21F002C30E3 /* ExpandTableVC.m */,
+				F72709451ADBD3B7002C30E3 /* TypeTwoViewController.h */,
+				F72709461ADBD3B7002C30E3 /* TypeTwoViewController.m */,
+			);
+			name = TypeViews;
 			sourceTree = "<group>";
 		};
 		F73E23471ACD83EC004B4DA6 /* FindView */ = {
@@ -223,6 +256,7 @@
 		F7DAD7DA1ABBEFE7000F080E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F727093B1ADBD1DC002C30E3 /* TypeViews */,
 				F7B935161ADA87D10077B95F /* menu */,
 				F73E23471ACD83EC004B4DA6 /* FindView */,
 				F71F4F6F1AC9436D00548D7A /* TableCell */,
@@ -345,6 +379,7 @@
 				F7DAD7E61ABBEFE7000F080E /* Main.storyboard in Resources */,
 				F7DAD8821ABD9811000F080E /* menuViewController.xib in Resources */,
 				F71F4F711ACAAB9C00548D7A /* logo.png in Resources */,
+				F727094B1ADD29BA002C30E3 /* 2.JPG in Resources */,
 				F71F4F6C1AC8572500548D7A /* 2.png in Resources */,
 				F71F4F6D1AC8572500548D7A /* 3.png in Resources */,
 				F7DAD7EB1ABBEFE7000F080E /* LaunchScreen.xib in Resources */,
@@ -352,6 +387,7 @@
 				F7DAD7E81ABBEFE7000F080E /* Images.xcassets in Resources */,
 				F7DAD87D1ABD97E2000F080E /* mainViewController.xib in Resources */,
 				F71F4F6B1AC8572500548D7A /* 1.png in Resources */,
+				F72709491ADD2460002C30E3 /* 3.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +408,7 @@
 				F7DAD9C11AC04D19000F080E /* navViews.m in Sources */,
 				F71F4F611AC849AC00548D7A /* imageViewCell.m in Sources */,
 				F71F4F741ACAC77200548D7A /* TitleWebView.m in Sources */,
+				F72709471ADBD3B7002C30E3 /* TypeTwoViewController.m in Sources */,
 				F7DAD7E01ABBEFE7000F080E /* AppDelegate.m in Sources */,
 				F7DAD9BE1AC04CBD000F080E /* navController.m in Sources */,
 				F7CF9CC11AD2DB15009A28BA /* ButtonCell.m in Sources */,
@@ -387,9 +424,12 @@
 				F71F4F671AC855BB00548D7A /* LikeButton.m in Sources */,
 				F7DAD7DD1ABBEFE7000F080E /* main.m in Sources */,
 				F7ABD8051AC43BB7003EF049 /* PageScroll.m in Sources */,
+				F72709421ADBD21F002C30E3 /* Btn_TableView.m in Sources */,
+				F72709441ADBD21F002C30E3 /* ExpandTableVC.m in Sources */,
 				F7CF9CBE1AD28A47009A28BA /* FindType_2.m in Sources */,
 				F7CF9CBB1AD28A20009A28BA /* FIndType_3.m in Sources */,
 				F73E234A1ACD8421004B4DA6 /* FindViewController.m in Sources */,
+				F72709431ADBD21F002C30E3 /* ExpandCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
