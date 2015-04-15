@@ -10,6 +10,7 @@
 #import "FindType_2.h"
 #import "FIndType_3.h"
 #import "ButtonCell.h"
+#import "TypeThreeViewController.h"
 @interface FindViewController ()
 {
    // NSMutableArray *rootFindType;
@@ -188,6 +189,10 @@ float DEVICE_WIDTH,DEVICE_HEIGHT;
     }
     
    
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    TypeThreeViewController *ttVC=[[TypeThreeViewController alloc]init];
+    [self.navigationController pushViewController:ttVC animated:YES];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

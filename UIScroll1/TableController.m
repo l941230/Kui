@@ -27,9 +27,9 @@ float DEVICE_WIDTH,DEVICE_HEIGHT;
     DEVICE_HEIGHT=[UIScreen mainScreen].bounds.size.height;
     
     self.tableView=[[UITableView alloc]initWithFrame:
-                    CGRectMake(0, 160, DEVICE_WIDTH, DEVICE_HEIGHT-35)];
+                    CGRectMake(0, 160, DEVICE_WIDTH, DEVICE_HEIGHT-35) ];
     self.tableView.bounces=YES;
- self.tableView.rowHeight=200;
+ self.tableView.rowHeight=300;
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     self.tableView.showsVerticalScrollIndicator=NO;
@@ -37,6 +37,16 @@ float DEVICE_WIDTH,DEVICE_HEIGHT;
    
     tableDataArray=[NSMutableArray arrayWithObjects:@"标题1",@"标题2",@"标题3", nil];
     isLoading=NO;
+    
+    UIView *footV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 100)];
+    [footV setBackgroundColor:[UIColor blackColor]];
+   
+  self.tableView.tableFooterView=[[UIView alloc]initWithFrame:CGRectMake(self.tableView.tableFooterView.frame.origin.x
+                                                                          , self.tableView.tableFooterView.frame.origin.y, self.tableView.frame.size.width, 300)];
+    [self.tableView.tableFooterView addSubview:footV];
+    self.tableView.bounces=NO;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
