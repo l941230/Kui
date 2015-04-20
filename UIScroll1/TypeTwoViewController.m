@@ -157,7 +157,7 @@
             textLBL.text=titleStr;
            //
             CGSize  size=[textLBL sizeThatFits:CGSizeMake(cell.contentView.frame.size.width-cell.contentView.frame.size.height-10, 200)];
-            NSLog(@"%f",size.height);
+          
             textLBL.frame=CGRectMake(LIST_MARGIN_WIDTH+cell.contentView.frame.size.height+10,LIST_MARGIN_HEIGHT,cell.contentView.frame.size.width-cell.contentView.frame.size.height-10, size.height);
             
             [cell.contentView addSubview:textLBL];

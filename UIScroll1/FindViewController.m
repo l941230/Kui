@@ -69,8 +69,13 @@ float DEVICE_WIDTH,DEVICE_HEIGHT;
     UISearchBar *searchBar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 60, DEVICE_WIDTH, 40)];
     searchBar.delegate=self;
     searchBar.showsCancelButton=YES;
+    searchBar.placeholder=@"查询你想要的分类";
+    
+    searchBar.translucent=YES;
     isFilter=false;
     
+    UIView *backgreoundView = [searchBar.subviews[0] subviews][0];
+    [backgreoundView removeFromSuperview];
     for(UIView *view in [searchBar.subviews[0] subviews])
     {
         if([view isKindOfClass:[UIButton class]])
@@ -78,8 +83,16 @@ float DEVICE_WIDTH,DEVICE_HEIGHT;
             UIButton *cancelBtn=(UIButton *)view;
             [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
         }
+  
     }
+    UITextField *txfSearchField = [searchBar valueForKey:@"_searchField"];
     
+    txfSearchField.textAlignment=NSTextAlignmentLeft;
+    txfSearchField.layer.borderWidth = 1.0f;
+    txfSearchField.layer.cornerRadius = 10.0f;
+    txfSearchField.textColor=[UIColor blueColor];
+    txfSearchField.layer.borderColor=[UIColor blueColor].CGColor;
+
     [self.view addSubview:searchBar];
     
     self.navigationController.toolbar.hidden=NO;
@@ -337,15 +350,16 @@ float DEVICE_WIDTH,DEVICE_HEIGHT;
 }
 -(void)removecell:(ButtonCell *) buton
 {
-    
-    FindType_2 *find_2=buton.findType_2Delegate;
     FIndType_3 *find_3=buton.findType_3Delegate;
-   
+    FindType_2 *find_2=find_3.parentFind_2Delegate;
+    
     
     [find_2.subArray addObject:find_3];
     [intrestArray removeObject:find_3];
     find_3.isIntrest=NO;
     [tableview reloadData];
+    NSLog(@"remove!");
+    NSLog(@"%@",find_2);
     
 }
 -(void)concentrate:(ButtonCell *) buton

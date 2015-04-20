@@ -32,6 +32,9 @@ struct PPoint touch_End;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(enable) name:@"SCROLL_ENABLE" object:nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(disable) name:@"SCROLL_DISABLE" object:nil];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(scrollToMenuNoAnimate) name:@"SCROLL_TO_MENU_NOANIMATE" object:nil];
+    
     DEVICE_WIDTH=[UIScreen mainScreen].bounds.size.width;
     DEVICE_HEIGHT=[UIScreen mainScreen].bounds.size.height;
     menuViewController *menuController=[[menuViewController alloc]init];
@@ -62,7 +65,7 @@ struct PPoint touch_End;
     [self.scView setScrollEnabled:YES];
 
     [self.view addSubview:self.scView];
-    //[self.scView addSubview:view1];
+   
      [self.scView addSubview:menuController.view];
     [self.scView addSubview:view2];
    
@@ -78,14 +81,14 @@ struct PPoint touch_End;
     
     
     self.scView.delegate=self;
-    //[self.scView setDecelerationRate:0.9];
+  
     self.scView.pagingEnabled=YES;
     [self.scView addSubview:view3];
     [[view3 superview]bringSubviewToFront:view3];
     view3.userInteractionEnabled=YES;
     [self.scView setContentOffset:CGPointMake(0.75*DEVICE_WIDTH, 0)];
     
-  //  [self.scView addObserver:self forKeyPath:@"isMainState" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+
     
     
     
@@ -120,7 +123,14 @@ struct PPoint touch_End;
     [view3 addGestureRecognizer:tap];
     
 }
+-(void)scrollToMenuNoAnimate{
+    [self.scView  setContentOffset:CGPointMake(0, 0) animated:NO] ;
+    self.scView.isMainState=false;
+    mainViewController *main=nav.delegatemain;
+    main.view.userInteractionEnabled=NO;
+    [view3 addGestureRecognizer:tap];
 
+}
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     if(scrollView.contentOffset.x<0.5*DEVICE_WIDTH)
@@ -132,13 +142,6 @@ struct PPoint touch_End;
     {
         [self returnMain];
     }
-}
--(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
-  
-
-    
-
-    
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -158,14 +161,6 @@ struct PPoint touch_End;
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

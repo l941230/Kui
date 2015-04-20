@@ -7,8 +7,12 @@
 //
 
 #import "menuViewController.h"
+#import "LoginSingle.h"
 
 @interface menuViewController ()
+{
+    rootViewController *root;
+}
 
 @end
 
@@ -20,10 +24,22 @@ float VIEW_WIDTH;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
     DEVICE_WIDTH=[UIScreen mainScreen].bounds.size.width;
     DEVICE_HEIGHT=[UIScreen mainScreen].bounds.size.height;
     VIEW_WIDTH=0.75*DEVICE_WIDTH;
-//!!!!!!!!!!!!!!!!!!!!
+    
+    UIButton *backBtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, self.navigationController.navigationBar.frame.size.height)];
+    
+    UIBarButtonItem *back=[[UIBarButtonItem alloc]initWithCustomView:backBtn];
+    [backBtn setBackgroundColor:[UIColor blackColor]];
+     root=self.rootDelegate;
+    //root.nav.navigationItem.backBarButtonItem=back;
+   NSLog(@"%@-------%@",back,root.nav);
+    //判断是否登录了
+    LoginSingle *login=[LoginSingle newinstance];
+    if(login.isLogined)
+    {
     UIView *headView=[[UIView alloc]initWithFrame:CGRectMake(VIEW_WIDTH/3, DEVICE_HEIGHT/11,VIEW_WIDTH/3, VIEW_WIDTH/3)];
     [self.view addSubview:headView];
     UIButton *headViewBtn=[[UIButton alloc]initWithFrame:CGRectMake(0 , 0, VIEW_WIDTH/3, VIEW_WIDTH/3)];
@@ -48,7 +64,32 @@ float VIEW_WIDTH;
     [self.view addSubview:discussBtn];
     [self.view addSubview:likeBtn];
   
-    
+    }
+    else
+    {
+        UIView *headView=[[UIView alloc]initWithFrame:CGRectMake(VIEW_WIDTH/3, DEVICE_HEIGHT/11,VIEW_WIDTH/3, VIEW_WIDTH/3)];
+        [self.view addSubview:headView];
+        UIButton *headViewBtn=[[UIButton alloc]initWithFrame:CGRectMake(0 , 0, VIEW_WIDTH/3, VIEW_WIDTH/3)];
+        headViewBtn.layer.cornerRadius=headViewBtn.layer.frame.size.width/2;
+        [headViewBtn setBackgroundColor:[UIColor redColor]];
+        [headView addSubview:headViewBtn];
+        
+        
+        
+        UIButton *loginBtn=[[UIButton alloc]initWithFrame:CGRectMake(VIEW_WIDTH/5, DEVICE_HEIGHT/11+VIEW_WIDTH/3+DEVICE_HEIGHT*0.09, VIEW_WIDTH/4, 3*VIEW_WIDTH/25)];
+        [loginBtn setTitle: @"登录" forState:UIControlStateNormal];
+        [loginBtn setBackgroundColor:[UIColor greenColor]];
+        [loginBtn addTarget:self action:@selector(pushLogin) forControlEvents:UIControlEventTouchDown];
+        
+        
+        
+        UIButton *registerBtn=[[UIButton alloc]initWithFrame:CGRectMake(         3*VIEW_WIDTH/5, DEVICE_HEIGHT/11+VIEW_WIDTH/3+DEVICE_HEIGHT*0.09, VIEW_WIDTH/4, 3*VIEW_WIDTH/25)];
+        [registerBtn setTitle: @"注册" forState:UIControlStateNormal];
+        [registerBtn setBackgroundColor:[UIColor greenColor]];
+        [self.view addSubview:loginBtn];
+        [self.view addSubview:registerBtn];
+        
+    }
     
     
     
@@ -76,15 +117,6 @@ float VIEW_WIDTH;
     
     
     
-//    
-//    NSLayoutConstraint *constraint=[NSLayoutConstraint constraintWithItem: offlineDownloadBtn attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
-//    [self.view addConstraint:constraint];
-//    constraint=[NSLayoutConstraint constraintWithItem: offlineDownloadBtn attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:-DEVICE_HEIGHT*0.05];
-//    [self.view addConstraint:constraint];
-//    constraint=[NSLayoutConstraint constraintWithItem: offlineDownloadBtn attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
-//    [self.view addConstraint:constraint];
-//    
-//    NSArray *constraints=[NSLayoutConstraint constraintsWithVisualFormat:@"V" options:0 metrics:nil views:NSDictionaryOfVariableBindings(offlineDownloadBtn,nightModelBtn)];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -100,9 +132,7 @@ float VIEW_WIDTH;
     UITableViewCell *cell;
    
         
-//        static NSString *setterIdentifier=@"setterIdentifier";
-//        cell=[tableView dequeueReusableCellWithIdentifier:setterIdentifier];
-//        if(cell==nil)
+
         {
             cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:nil
                   ];
@@ -137,14 +167,24 @@ float VIEW_WIDTH;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
    
-    if(indexPath.row==0)
+    if(indexPath.row==2)
     {
-        rootViewController *root=self.rootDelegate;
+       root=self.rootDelegate;
         [root.scView setContentOffset:CGPointMake(0.75*DEVICE_WIDTH, 0)animated:YES];
         PersonalDataViewController *personDataVC=[[PersonalDataViewController alloc]init];
+       
         [root.nav pushViewController:personDataVC animated:YES];
     }
 
+}
+-(void)pushLogin{
+  root=self.rootDelegate;
+    
+    [root.scView setContentOffset:CGPointMake(0.75*DEVICE_WIDTH, 0)animated:YES];
+   
+    LoginViewController *loginVC=[[LoginViewController alloc]init];
+    loginVC.view.backgroundColor=[UIColor whiteColor];
+    [root.nav pushViewController:loginVC animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

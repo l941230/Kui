@@ -1,24 +1,28 @@
 //
-//  DIscussViewController.m
+//  DiscussVC.m
 //  UIScroll1
 //
 //  Created by eddie on 15-4-15.
 //  Copyright (c) 2015年 Test. All rights reserved.
 //
 
-#import "DIscussViewController.h"
+#import "DiscussVC.h"
 
-@interface DIscussViewController ()
+@interface DiscussVC ()
 
 @end
 
-@implementation DIscussViewController
+@implementation DiscussVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    HaveHotTableVC *VC=[[HaveHotTableVC alloc]init];
+    VC.parentDelegate=self;
+    [self.view addSubview:VC.tableView];
+    [self addChildViewController:VC];
     // Do any additional setup after loading the view.
     
-    
+     
 }
 
 - (void)didReceiveMemoryWarning {

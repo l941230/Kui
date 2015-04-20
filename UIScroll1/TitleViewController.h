@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TitleWebView.h"
 #import "navController.h"
+#import "DiscussVC.h"
 @interface TitleViewController : UIViewController
 @property id navdelegate;
 @property UIToolbar *toolBar;

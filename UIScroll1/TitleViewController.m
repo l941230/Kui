@@ -39,6 +39,9 @@ struct PPoint touch_End;
     UIButton *discussBtn=[[UIButton alloc]initWithFrame:CGRectMake(10, 0, 80, 60)];
     [discussBtn setTitle:@"评论" forState:UIControlStateNormal];
     [discussBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [discussBtn addTarget:self action:@selector(discuss) forControlEvents:UIControlEventTouchDown];
+    
+    
     UIButton *likeBtn=[[UIButton alloc]initWithFrame:CGRectMake(100 , 0, 80, 60)];
     [likeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [likeBtn setTitle:@"收藏" forState:UIControlStateNormal];
@@ -49,6 +52,8 @@ struct PPoint touch_End;
     [shareBtn setTitle:@"分享" forState:UIControlStateNormal];
     [shareBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [shareBtn addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchDown];
+    
+    
     btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
     
     [btn setTitle:@"返回" forState:UIControlStateNormal];
@@ -58,7 +63,7 @@ struct PPoint touch_End;
    
     toolBar=[[UIToolbar alloc]init];
    
-    [toolBar setFrame:CGRectZero];
+  
     [toolBar setTranslatesAutoresizingMaskIntoConstraints:NO];
     toolBar.layer.masksToBounds=YES;
     toolBar.layer.cornerRadius=6;
@@ -160,24 +165,40 @@ struct PPoint touch_End;
 }
 -(void)like
 {
-    wbVC=[[UIViewController alloc]init];
+   wbVC=[[UIViewController alloc]init];
+//
+//    UIWebView *wbv=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, 0.5*DEVICE_WIDTH, 0.5*DEVICE_HEIGHT)];
+//    [wbVC.view addSubview:wbv];
+//    [wbVC.view setBackgroundColor:[UIColor blackColor]];
+//    UIButton *btnn=[[UIButton alloc]initWithFrame:CGRectMake(0, DEVICE_HEIGHT*0.5, 80, 50)];
+//    [btnn setTitle:@"返回" forState:UIControlStateNormal];
+//    [wbVC.view addSubview: btnn];
+//    [btnn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchDown];
 
-    UIWebView *wbv=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, 0.5*DEVICE_WIDTH, 0.5*DEVICE_HEIGHT)];
-    [wbVC.view addSubview:wbv];
-    [wbVC.view setBackgroundColor:[UIColor blackColor]];
-    UIButton *btnn=[[UIButton alloc]initWithFrame:CGRectMake(0, DEVICE_HEIGHT*0.5, 80, 50)];
-    [btnn setTitle:@"返回" forState:UIControlStateNormal];
-    [wbVC.view addSubview: btnn];
-    [btnn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchDown];
-    [self.navigationController pushViewController:wbVC animated:YES];
-    
-    
-}
--(void)back{
-    [wbVC.navigationController popViewControllerAnimated:YES];
-    
+   // UITextField *tex1=[[UITextField alloc]initWithFrame:CGRectMake(0, 0, 200, 100)];
 
+  //  [tex1 setText:@"哈哈啊哈电风扇的风放到哈哈啊哈电风扇的风放到哈哈啊哈电风扇的风放到哈哈啊哈电风扇的风放到"];
+    // tex1.userInteractionEnabled=NO;
+//    tex1.textColor=[UIColor blackColor];
+//    tex1.backgroundColor=[UIColor blueColor];
+//    tex1.clearButtonMode=UITextFieldViewModeAlways;
+//    [wbVC.view addSubview:tex1];
+//    
+    //tex1.placeholder=@"haha dsa ";
+    
+     [self.navigationController pushViewController:wbVC animated:YES];
 }
+
+-(void)discuss{
+    DiscussVC *VC=[[DiscussVC alloc]init];
+    [self.navigationController pushViewController:VC animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+//-(void)back{
+//    [wbVC.navigationController popViewControllerAnimated:YES];
+//    
+//
+//}
 -(void)share{
  
     CATransition *transition = [CATransition animation];

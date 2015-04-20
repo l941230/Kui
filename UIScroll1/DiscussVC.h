@@ -1,5 +1,5 @@
 //
-//  DIscussViewController.h
+//  DiscussVC.h
 //  UIScroll1
 //
 //  Created by eddie on 15-4-15.
@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface DIscussViewController : UIViewController
+#import "HaveHotTableVC.h"
+@interface DiscussVC : UIViewController
 
 @end

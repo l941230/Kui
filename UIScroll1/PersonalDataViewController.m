@@ -21,13 +21,14 @@ float DEVICE_WIDTH,DEVICE_HEIGHT;
     DEVICE_HEIGHT=[UIScreen mainScreen].bounds.size.height;
     
     
-    
+   self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:[[UIView alloc]init]];
     
     UITableView *personDataTableView=[[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStyleGrouped];
     personDataTableView.dataSource=self;
     personDataTableView.delegate=self;
     [self.view addSubview:personDataTableView];
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section==0&&indexPath.row==0)
     {
@@ -125,6 +126,9 @@ float DEVICE_WIDTH,DEVICE_HEIGHT;
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 3;
     
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"SCROLL_TO_MENU_NOANIMATE" object:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
